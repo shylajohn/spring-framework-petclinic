@@ -2,12 +2,7 @@ pipeline {
    agent any
      stages {
        stage('Build') {
-           agent {
-               docker {
-                 image 'maven'
-
-                       }
-           }
+           agent any
            steps {
                    sh 'cp -r src /usr/src/app/src'
                    sh 'cp  pom.xml /usr/src/app/'
