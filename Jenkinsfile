@@ -1,6 +1,5 @@
-pipeline {
-    agent any
-    stages {
+pipeline {    
+ stages {
        stage('Build') {
            agent {
                docker 'ubuntu'
