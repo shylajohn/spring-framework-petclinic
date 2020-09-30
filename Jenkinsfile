@@ -1,9 +1,10 @@
-pipeline {    
- stages {
-       stage('Build') {
-           agent {
+pipeline { 
+  agent {
                 args '-u root'
            }
+  stages {
+       stage('Build') {
+          
            steps {
                  
                    sh 'cd /usr/src/'
