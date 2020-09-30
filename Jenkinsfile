@@ -14,8 +14,7 @@ pipeline {
                        }
            }
            steps {
-
-	sh 'cp -r src /usr/src/app/src'
+                   sh 'cp -r src /usr/src/app/src'
                    sh 'cp  pom.xml /usr/src/app/'
                    sh 'mvn -f /usr/src/app/pom.xml clean package'
                    sh 'docker build .'
