@@ -1,7 +1,17 @@
 pipeline {
-   agent any
+    agent {
+        dockerfile true
+    }
+
               
   stages {
+     
+      stage('test -') {
+            steps {
+                sh 'pwd'
+                sh 'whoami'
+            }
+        }
        stage('Build') {
           
            steps {
