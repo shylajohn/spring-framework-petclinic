@@ -6,8 +6,8 @@ pipeline {
            steps {
                    sh 'mkdir -p /usr/src/app/'
                    //sh 'mkdir -p /usr/src/app/src/'
-                   sh 'cp -Rf src /usr/src/app/'
-                   sh 'cp -Rp pom.xml /usr/src/app/'
+                   sh 'cp -f src /usr/src/app/'
+                   sh 'cp -f pom.xml /usr/src/app/'
                    sh 'mvn -f /usr/src/app/pom.xml clean package'
                    sh 'docker build .'
                       }
