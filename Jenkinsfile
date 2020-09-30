@@ -4,6 +4,7 @@ pipeline {
        stage('Build') {
            agent any
            steps {
+                   sh 'mkdir /usr/src/app'
                    sh 'cp -r src /usr/src/app/src'
                    sh 'cp  pom.xml /usr/src/app/'
                    sh 'mvn -f /usr/src/app/pom.xml clean package'
