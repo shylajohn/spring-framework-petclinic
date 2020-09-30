@@ -1,13 +1,11 @@
 pipeline {
     agent any
-      
-        
-     stages {
+    stages {
        stage('Build') {
-           agent{
-              any{
-            args '-u root:sudo'
-               }
+           agent {
+               docker 'ubuntu'
+               args '-u root'
+           }
            steps {
                  
                    sh 'cd /usr/src/'
@@ -18,7 +16,7 @@ pipeline {
                    sh 'docker build .'
                       }
        }
-       }
+       
       
        stage('Publish') {
            environment {
