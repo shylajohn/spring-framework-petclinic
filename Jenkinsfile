@@ -1,7 +1,10 @@
 pipeline { 
-  agent 'any'{
-                args '-u root'
-           }
+  agent any
+       environment {
+       args '-u root'
+   }
+   
+           
   stages {
        stage('Build') {
           
