@@ -4,8 +4,8 @@ pipeline {
        stage('Build') {
            agent any
            steps {
-                   sh 'echo "af007f6b3b8945f595a61e637bcf5746" | sudo -S mkdir /usr/src/app'
-                   sh 'cp -r src /usr/src/app/src'
+                   //sh 'echo "af007f6b3b8945f595a61e637bcf5746" | sudo -S mkdir /usr/src/app'
+                   sh 'cp -r src /usr/src/app/'
                    sh 'cp  pom.xml /usr/src/app/'
                    sh 'mvn -f /usr/src/app/pom.xml clean package'
                    sh 'docker build .'
