@@ -4,8 +4,10 @@ pipeline {
        stage('Build') {
            agent any
            steps {
+                 
                    sh 'cd /usr/src/'
                    sh 'mkdir -p /usr/src/app/'
+                   sh 'chown ubuntu:ubuntu /usr/src/app/'
                    //sh 'mkdir -p /usr/src/app/src/'
                    sh 'cp -r src/ /usr/src/app/'
                    sh 'cp -r pom.xml /usr/src/app/'
