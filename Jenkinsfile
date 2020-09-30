@@ -1,6 +1,5 @@
 pipeline { 
-  agent any
-       environment {
+  agent any {
        args '-u root'
    }
    
