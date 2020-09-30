@@ -1,8 +1,10 @@
-pipeline { 
-  agent any {
-       args '-u root'
-   }
-   
+pipeline {
+   agent any
+   tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+        args ' -u root'
+    }
            
   stages {
        stage('Build') {
