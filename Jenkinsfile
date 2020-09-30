@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu'
-            args '-u root:sudo -v $HOME/ubuntu'
-        }
+    agent any
      stages {
        stage('Build') {
            agent any
            steps {
-                   sh 'sudo su'
+                   sh 'sh "sudo chown root:jenkins /run/docker.sock"'
                    sh 'mkdir -p /usr/src/app'
                    sh 'mkdir -p /usr/src/app/src'
                    sh 'cp -Rp src /usr/src/app/'
