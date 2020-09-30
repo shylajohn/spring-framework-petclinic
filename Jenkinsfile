@@ -1,19 +1,23 @@
 pipeline {
     agent any
+      
+        
      stages {
        stage('Build') {
-           agent any
+           agent{
+              any{
+            args '-u root:sudo'
+               }
            steps {
                  
                    sh 'cd /usr/src/'
                    sh 'mkdir -p /usr/src/app/'
-                   sh 'chown ubuntu:ubuntu /usr/src/app/'
-                   //sh 'mkdir -p /usr/src/app/src/'
                    sh 'cp -r src/ /usr/src/app/'
                    sh 'cp -r pom.xml /usr/src/app/'
                    sh 'mvn -f /usr/src/app/pom.xml clean package'
                    sh 'docker build .'
                       }
+       }
        }
       
        stage('Publish') {
