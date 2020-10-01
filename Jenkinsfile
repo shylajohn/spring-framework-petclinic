@@ -1,4 +1,3 @@
-
 pipeline{       
   agent any
   stages {
@@ -12,12 +11,15 @@ pipeline{
        stage('Build') {
           
            steps {
-                 
-                   sh 'cd /usr/src/'
-                   sh 'mkdir -p /usr/src/app/'
-                   sh 'cp -r src/ /usr/src/app/'
-                   sh 'cp -r pom.xml /usr/src/app/'
-                   sh 'mvn -f /usr/src/app/pom.xml clean package'
+                
+                   sh 'pwd'
+                   //sh 'cd /usr/src/'
+                   //sh 'pwd'
+                   //sh 'mkdir -p /usr/src/app/'
+                   
+                   //sh 'cp -r $WORKSPACE /usr/src/app/'
+                   //sh 'cp -r pom.xml /usr/src/app/'
+                   sh 'mvn -f pom.xml clean package'
                    sh 'docker build .'
                       }
        }
